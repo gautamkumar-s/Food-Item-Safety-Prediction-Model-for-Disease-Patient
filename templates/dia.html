@@ -55,7 +55,7 @@
     }
     .output{
         position: absolute;
-        top: 155%;
+        top: 205%;
         right: 5%;
         text-align: center;
         width: 100%;
@@ -110,14 +110,14 @@
     .information{
       width: 67%;
       position: absolute;
-      top: 118%;
+      top: 135%;
       left: 5%;
       background-color: rgb(189, 112, 45);
       color: white;
       padding: 5px;
       border-radius: 25px;
-      
-      height: 195px;
+      font-size: larger;
+      height: 450px;
     }
     .summary{
       width: 44%;
@@ -127,8 +127,9 @@
       background-color: rgb(197, 34, 61);
       color: white;
       padding: 5px;
-      font-size: large;
-      height: 390px;
+      font-size: larger;
+      height: 500px;
+
       border-radius: 25px;
     }
     .summaryhead{
@@ -183,7 +184,7 @@
       color: white;
       display: block;
       position: absolute;
-      top: 170%;;
+      top: 220%;;
       height: auto;
       padding: 5px;
 
@@ -206,8 +207,20 @@
 <div class="information">
   <h2><u>IMPORTANT NOTE</u></h2>
   <p><li>Write ingredient quantity per 100g of food item.</li></p>
-  <p><li>All quantities should be in grams (g), except Calcium, which must be in milligrams (mg).</li></p>
+  <p><li>All quantities should be in grams (g), except ( Calcium, magnesium, potassium, sodium and iron), which must be in milligrams (mg).</li></p>
   <p><li>Check the food package label carefully before entering the values to ensure accuracy in prediction.</li></p>
+  <p><li>
+    Fill in the nutrient details based on the disease you selected.
+
+    
+    
+    
+  </li></p>
+  <p><li>📌 Diabetes: Focus on Carbohydrates, Sugar, Protein, Fat, Saturated Fat, and Calcium.
+</li></p>
+  <p><li>📌 High Blood Pressure: Focus on Sodium, Fat, Saturated Fat, Sugar, Carbs, and Calories.
+</li></p>
+  <p><li>📌 Obesity: Fill in all nutrients, especially Calories, Fats, Sugar, Sodium, and Iron.</li></p>
   <p><li>Input meaningful and correct data values. Avoid leaving blank or entering text in numeric fields to prevent errors in the model</li></p>
 </div>
 
@@ -227,45 +240,99 @@
 
   <div class="item " style="width: 19%;text-align: center; font-size: large;position: absolute;top: 51%;right: 5%;"><U> <b>INGREDIENT DETAILS</b></U> </div>
   
-  <form class="container" method="POST">
+  <form  method="POST">
       
-      
-      <div class="item">
-      <div>Kcal*</div>
-      <input type="text"  name="kcal" placeholder="Enter value">
-      </div>
+      <div class="container">
+        <div class="item">
+          <div>Kcal*( Diabetes, obesity)
+          </div>
+          <input type="text"  name="kcal" placeholder="Enter value">
+        </div>
 
-    <div class="item">
-      <div>PROTEIN*</div>
-      <input type="text" name="protein" placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>PROTEIN*(Diabetes)</div>
+          <input type="text" name="protein" placeholder="Enter value">
+        </div>
 
-    <div class="item">
-      <div>SATURATED FAT*</div>
-      <input type="text" name="saturated_fat" placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>SATURATED FAT*(ALL)</div>
+          <input type="text" name="saturated_fat" placeholder="Enter value">
+        </div>
     
-    <div class="item">
-      <div>FAT*</div>
-      <input type="text" name="fat" placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>FAT*( Diabetes,obesity)</div>
+          <input type="text" name="fat" placeholder="Enter value">
+        </div>
 
-    <div class="item">
-      <div>CARBS*</div>
-      <input type="text" name="carbs" placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>CARBS*(Diabetes,obesity)</div>
+          <input type="text" name="carbs" placeholder="Enter value">
+        </div>
 
-    <div class="item">
-      <div>SUGAR*</div>
-      <input type="text" name="sugar"placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>SUGAR*(ALL)</div>
+          <input type="text" name="sugar"placeholder="Enter value">
+        </div>
 
-    <div class="item">
-      <div>CALCIUM*</div>
-      <input type="text"  name="calcium" placeholder="Enter value">
-    </div>
+        <div class="item">
+          <div>CALCIUM*(Highbloodpressure,obesity)</div>
+          <input type="text"  name="calcium" placeholder="Enter value">
+        </div>
 
-    <div class="item"><button type="submit" style="width: auto; height: 30px;border-radius: 15px;"> SUBMIT </button></div>
+        <div class="item">
+          <div>MAGNESIUM*( Highbloodpressure,obesity)</div>
+          <input type="text"  name="magnesium" placeholder="Enter value">
+        </div>
+
+        <div class="item">
+          <div>SODIUM*(Highbloodpressure,obesity)</div>
+          <input type="text"  name="sodium" placeholder="Enter value">
+        </div>
+
+        <div class="item">
+          <div>IRON*(obesity)</div>
+          <input type="text"  name="iron" placeholder="Enter value">
+        </div>
+
+        <div class="item">
+          <div>POTASSIUM*(Highbloodpressure)</div>
+          <input type="text"  name="potassium" placeholder="Enter value">
+        </div>
+
+        <div class="item"><button type="submit" style="width: auto; height: 30px;border-radius: 15px;"> SUBMIT </button></div>
+      </div>
+      
+
+      <div class="info">
+        <div class="details">
+          <div>NAME</div>
+          <input type="text" placeholder="Enter your name">
+        </div>
+
+        <div class="details">
+          <div>AGE</div>
+          <input type="text" placeholder="Enter your age">
+        </div>
+
+        <div class="details" >
+          <div>GENDER</div><br>
+          <input type="radio" id="male" name="gender" value="1">
+          <label for="male">MALE</label> 
+          <input type="radio" id="female" name="gender" value="0">
+          <label for="female">FEMALE</label>
+        </div>
+
+        <div class="details" >
+          <div>DISEASE*</div>
+          <select name="disease" id="disease" required >
+            <option value="" disabled selected>Select Disease</option>
+            <option value="Diabetes">DIABETES</option>
+            <option value="highbloodpressure">HIDH BLOOD PRESSURE</option>
+            <option value="obesity">OBESITY</option>
+          </select>
+        </div>
+      </div>
+    
   </form>
     
   
@@ -280,36 +347,7 @@
     
 
   </footer>
-  <form class="info"> 
-      
-    <div class="details">
-      <div>NAME</div>
-      <input type="text" placeholder="Enter your name">
-    </div>
-
-    <div class="details">
-      <div>AGE</div>
-      <input type="text" placeholder="Enter your age">
-    </div>
-
-    <div class="details" >
-      <div>GENDER</div><br>
-      <input type="radio" id="male" name="gender" value="1">
-      <label for="male">MALE</label> 
-      <input type="radio" id="female" name="gender" value="0">
-      <label for="female">FEMALE</label>
-    </div>
-
-    <div class="details">
-      <div>DISEASE*</div>
-      <select name="diesase" id="diesase">
-        <option value="Diabetes">DIABETES</option>
-        <option value="highbloodpressure">HIDH BLOOD PRESSURE</option>
-        <option value="obesity">OBESITY</option>
-        <option value="heart disease">HEART DISEASE</option>
-        <option value="hypertension">HYPERTENSION</option>
-    </div>
-  </form>
+  
   
   
 
